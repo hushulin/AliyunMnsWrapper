@@ -1,0 +1,24 @@
+{
+	"name":"hushulin/AliyunMnsWrapper",
+	"description":"An aliyun mns sdk wrapper.",
+	"keywords":["mns", "sdk", "wrapper"],
+	"license":"MIT",
+	"authors":[
+		{
+			"name":"hushulin",
+			"email":"hushulin12321@126.com"
+		}
+	],
+	"require":{
+		"php":">=5.5",
+		"guzzlehttp/guzzle": "~6.2.1"
+	},
+	"autoload":{
+		"psr-4":{
+			"AliyunMnsWrapper\\":"src/"
+		},
+		"files":[
+			"mns-autoloader.php"
+		]
+	}
+}

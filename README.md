@@ -6,5 +6,6 @@ composer require hushulin/AliyunMnsWrapper
 
 # Usage
 1. require autoload.php
-2. new Class
-3. sendMessage
+2. new MnsSender
+3. send
+4. multi_send
