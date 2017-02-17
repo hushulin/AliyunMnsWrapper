@@ -1,5 +1,5 @@
 {
-	"name":"hushulin/AliyunMnsWrapper",
+	"name":"hushulin/aliyun-mns-wrapper",
 	"description":"An aliyun mns sdk wrapper.",
 	"keywords":["mns", "sdk", "wrapper"],
 	"license":"MIT",
