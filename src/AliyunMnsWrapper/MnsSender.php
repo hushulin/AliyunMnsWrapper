@@ -2,7 +2,9 @@
 namespace AliyunMnsWrapper\AliyunMnsWrapper;
 
 use AliyunMNS\Client;
+use AliyunMNS\Model\SendMessageRequestItem;
 use AliyunMNS\Requests\SendMessageRequest;
+use AliyunMNS\Requests\BatchSendMessageRequest;
 use AliyunMNS\Requests\CreateQueueRequest;
 use AliyunMNS\Exception\MnsException;
 
@@ -41,9 +43,23 @@ class MnsSender
 
 	}
 
-	public function multi_send($queueName , $multiMessageBody)
+	public function multi_send($queueName , array $multiMessageBody)
 	{
-		# code...
+		try {
+			$multiMessageBodyItems = [];
+
+			$queue = $this->client->getQueueRef($queueName);
+
+			foreach ($multiMessageBody as $key => $value) {
+				$multiMessageBodyItems[] = new SendMessageRequestItem($value);
+			}
+
+			$request = new BatchSendMessageRequest($multiMessageBodyItems);
+
+			return ['status' => 1 , 'message' => $queue->sendMessage($request)];
+		} catch (MnsException $e) {
+			return ['status' => 0 , 'message' => $e->getMessage()];
+		}
 	}
 
 }
