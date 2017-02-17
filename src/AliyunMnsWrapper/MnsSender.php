@@ -56,7 +56,7 @@ class MnsSender
 
 			$request = new BatchSendMessageRequest($multiMessageBodyItems);
 
-			return ['status' => 1 , 'message' => $queue->sendMessage($request)];
+			return ['status' => 1 , 'message' => $queue->batchSendMessage($request)];
 		} catch (MnsException $e) {
 			return ['status' => 0 , 'message' => $e->getMessage()];
 		}
